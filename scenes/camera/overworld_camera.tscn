@@ -4,7 +4,7 @@
 
 [node name="OverworldCamera" type="Node3D"]
 script = ExtResource("1_nsu0n")
-follow_strength = 0.02
+follow_strength = 3.0
 follow_slack = 0.1
 
 [node name="Camera3D" type="Camera3D" parent="."]

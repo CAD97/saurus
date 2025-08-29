@@ -2,7 +2,7 @@ extends Node3D
 
 
 @export var follow_nodes: Array[Node3D]
-@export_range(0, 1, 0.01) var follow_strength: float = 0.05
+@export var follow_strength: float = 1
 @export var follow_slack: float = 0.05
 
 
@@ -15,4 +15,4 @@ func _process(delta: float) -> void:
 		target_pos /= follow_nodes.size()
 		var pos_diff = target_pos - self.global_position
 		if pos_diff.length_squared() > follow_slack * follow_slack:
-			self.position += pos_diff * self.follow_strength
+			self.position += pos_diff * self.follow_strength * delta
