@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds1p5u0p4svb"]
+
+[ext_resource type="Script" uid="uid://dysv25p817cda" path="res://characters/player/player.gd" id="1_508ok"]
+[ext_resource type="Texture2D" uid="uid://olcj6phtiowd" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0105.png" id="2_xxgcw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xxgcw"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_508ok")
+move_speed = 7.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_xxgcw")
+
+[node name="Offset" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="Offset"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+pixel_size = 0.0625
+billboard = 1
+double_sided = false
+texture_filter = 4
+texture = ExtResource("2_xxgcw")
