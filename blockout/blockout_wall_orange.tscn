@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://qdqbbhyi0rrc"]
+
+[ext_resource type="Texture2D" uid="uid://drtit4hpnpy7w" path="res://addons/kenney_prototype_textures/orange/texture_01.png" id="1_3a4dh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xu1o"]
+albedo_texture = ExtResource("1_3a4dh")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[node name="BlockoutStairOrange" type="CSGBox3D"]
+material = SubResource("StandardMaterial3D_2xu1o")

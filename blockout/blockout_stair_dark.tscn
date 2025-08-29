@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://do14h213q6bpu"]
+
+[ext_resource type="Texture2D" uid="uid://c23guf46xcndn" path="res://addons/kenney_prototype_textures/dark/texture_10.png" id="1_g5lvp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyth5"]
+albedo_texture = ExtResource("1_g5lvp")
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5
+
+[node name="BlockoutStairDark" type="CSGBox3D"]
+material = SubResource("StandardMaterial3D_fyth5")
