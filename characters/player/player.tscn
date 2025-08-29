@@ -13,14 +13,15 @@ script = ExtResource("1_508ok")
 move_speed = 7.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.41, 0, 0, 0, 1, 0, 0, 0)
 centered = false
 offset = Vector2(-8, 0)
 pixel_size = 0.05
+billboard = 2
 double_sided = false
 texture_filter = 0
 texture = ExtResource("2_xxgcw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.71934, 0.694658, 0, -0.694658, 0.71934, 7.79629e-05, 0.297689, -0.137538)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.319, 0.001)
 shape = SubResource("CapsuleShape3D_xxgcw")
