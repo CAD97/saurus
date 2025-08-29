@@ -1,26 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds1p5u0p4svb"]
+[gd_scene load_steps=4 format=3 uid="uid://ds1p5u0p4svb"]
 
 [ext_resource type="Script" uid="uid://dysv25p817cda" path="res://characters/player/player.gd" id="1_508ok"]
 [ext_resource type="Texture2D" uid="uid://olcj6phtiowd" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0105.png" id="2_xxgcw"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xxgcw"]
-radius = 0.1
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_exd8k"]
-radius = 0.25
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
+radius = 0.222445
+height = 0.638385
 
 [node name="Player" type="CharacterBody3D"]
 floor_snap_length = 0.25
 script = ExtResource("1_508ok")
 move_speed = 7.0
-
-[node name="FeetCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.009)
-shape = SubResource("SphereShape3D_xxgcw")
-
-[node name="BodyCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369521, -0.259687)
-shape = SubResource("SphereShape3D_exd8k")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
@@ -30,3 +20,7 @@ pixel_size = 0.05
 double_sided = false
 texture_filter = 0
 texture = ExtResource("2_xxgcw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.71934, 0.694658, 0, -0.694658, 0.71934, 7.79629e-05, 0.297689, -0.137538)
+shape = SubResource("CapsuleShape3D_xxgcw")
