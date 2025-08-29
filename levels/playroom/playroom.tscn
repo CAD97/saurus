@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://baco2xlyhqhrt"]
+[gd_scene load_steps=5 format=3 uid="uid://baco2xlyhqhrt"]
 
 [ext_resource type="Material" uid="uid://5aqok7v7pl68" path="res://blockout/blockout_floor_mat.tres" id="1_84nag"]
+[ext_resource type="PackedScene" uid="uid://c2tybfs8g3oej" path="res://scenes/camera/overworld_camera.tscn" id="1_ly7m0"]
 [ext_resource type="Material" uid="uid://ddtpvqc7xxk1h" path="res://blockout/blockout_wall_mat_orange.tres" id="1_yclyt"]
+[ext_resource type="PackedScene" uid="uid://ds1p5u0p4svb" path="res://characters/player/player.tscn" id="3_3mtnd"]
 
 [node name="Playroom" type="Node3D"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 21.1421, 19.1421)
-fov = 20.0
+[node name="OverworldCamera" parent="." instance=ExtResource("1_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.258819, 0.683013, -0.683013, -1.77636e-15, 0.707107, 0.707107, 0.965926, -0.183013, 0.183013, 0, 0, 0)
@@ -61,3 +62,6 @@ material = ExtResource("1_yclyt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 1.5, -6.5)
 size = Vector3(1, 2, 1)
 material = ExtResource("1_yclyt")
+
+[node name="Player" parent="." instance=ExtResource("3_3mtnd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.500001, 0)
