@@ -4,15 +4,18 @@ extends CharacterBody3D
 var GRAVITY: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
 
 @export var move_speed: float = 1.0
+var move_intent: Vector2 = Vector2.ZERO
 
 
 # Called during the physics processing step of the main loop.
-func _physics_process(delta: float):
-	var dir = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
-	var intent = dir * self.move_speed
-	self.velocity = Vector3(intent.x, self.velocity.y, intent.y)
-	self.velocity += GRAVITY * delta
-	self.move_and_slide()
+func _physics_process(delta: float) -> void:
+	move_intent = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	if not is_on_floor():
+		move_intent = Vector2.ZERO
+	velocity.x = move_intent.x * move_speed
+	velocity.z = move_intent.y * move_speed
+	velocity += GRAVITY * delta
+	move_and_slide()
 	
-	if self.global_position.y < -20:
-		self.global_position = Vector3(0, 20, 0)
+	if global_position.y < -20:
+		global_position = Vector3(0, 20, 0)
