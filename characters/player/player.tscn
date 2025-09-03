@@ -171,11 +171,8 @@ states/walk_up/position = Vector2(542, -153)
 transitions = ["Start", "idle_down", SubResource("AnimationNodeStateMachineTransition_lv4bx"), "idle_up", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_jgd8i"), "idle_left", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_7b6hw"), "idle_right", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_4cx7u"), "idle_down", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_w53g3"), "walk_left", "idle_left", SubResource("AnimationNodeStateMachineTransition_gqopd"), "walk_up", "idle_up", SubResource("AnimationNodeStateMachineTransition_icpky"), "walk_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_58jvb"), "walk_down", "idle_down", SubResource("AnimationNodeStateMachineTransition_aqrcq"), "idle_to_walk", "walk_left", SubResource("AnimationNodeStateMachineTransition_d2agh"), "idle_to_walk", "walk_up", SubResource("AnimationNodeStateMachineTransition_fpo3a"), "idle_to_walk", "walk_right", SubResource("AnimationNodeStateMachineTransition_kyfeq"), "idle_to_walk", "walk_down", SubResource("AnimationNodeStateMachineTransition_5mkjs"), "walk_to_walk", "walk_up", SubResource("AnimationNodeStateMachineTransition_e0pgg"), "walk_to_walk", "walk_left", SubResource("AnimationNodeStateMachineTransition_sbttr"), "walk_to_walk", "walk_down", SubResource("AnimationNodeStateMachineTransition_6pj1p"), "walk_to_walk", "walk_right", SubResource("AnimationNodeStateMachineTransition_3a7m8"), "walk_right", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_y3et5"), "walk_down", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_0mbv2"), "walk_left", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_8v65i"), "walk_up", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_jepfe")]
 graph_offset = Vector2(-372, -205)
 
-[sub_resource type="Animation" id="Animation_58jvb"]
-resource_name = "walk_down"
-length = 0.8
-loop_mode = 1
-step = 0.2
+[sub_resource type="Animation" id="Animation_gqopd"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -183,15 +180,15 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_xxgcw"), ExtResource("3_gqopd"), ExtResource("2_xxgcw"), ExtResource("4_icpky")]
+"values": [ExtResource("2_xxgcw")]
 }
 
-[sub_resource type="Animation" id="Animation_e0pgg"]
-resource_name = "walk_up"
-length = 0.8
+[sub_resource type="Animation" id="Animation_8v65i"]
+resource_name = "idle_down"
+length = 0.2
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -201,46 +198,10 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_5mkjs"), ExtResource("12_yybc7"), ExtResource("11_5mkjs"), ExtResource("13_lv4bx")]
-}
-
-[sub_resource type="Animation" id="Animation_sbttr"]
-resource_name = "walk_left"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("5_58jvb"), ExtResource("6_8l73k"), ExtResource("5_58jvb"), ExtResource("7_aqrcq")]
-}
-
-[sub_resource type="Animation" id="Animation_6pj1p"]
-resource_name = "walk_right"
-length = 0.8
-loop_mode = 1
-step = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("8_d2agh"), ExtResource("9_fpo3a"), ExtResource("8_d2agh"), ExtResource("10_kyfeq")]
+"values": [ExtResource("2_xxgcw")]
 }
 
 [sub_resource type="Animation" id="Animation_3a7m8"]
@@ -297,9 +258,9 @@ tracks/0/keys = {
 "values": [ExtResource("11_5mkjs")]
 }
 
-[sub_resource type="Animation" id="Animation_8v65i"]
-resource_name = "idle_down"
-length = 0.2
+[sub_resource type="Animation" id="Animation_58jvb"]
+resource_name = "walk_down"
+length = 0.8
 loop_mode = 1
 step = 0.2
 tracks/0/type = "value"
@@ -309,14 +270,17 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_xxgcw")]
+"values": [ExtResource("2_xxgcw"), ExtResource("3_gqopd"), ExtResource("2_xxgcw"), ExtResource("4_icpky")]
 }
 
-[sub_resource type="Animation" id="Animation_gqopd"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_sbttr"]
+resource_name = "walk_left"
+length = 0.8
+loop_mode = 1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -324,10 +288,46 @@ tracks/0/path = NodePath("Sprite3D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_xxgcw")]
+"values": [ExtResource("5_58jvb"), ExtResource("6_8l73k"), ExtResource("5_58jvb"), ExtResource("7_aqrcq")]
+}
+
+[sub_resource type="Animation" id="Animation_6pj1p"]
+resource_name = "walk_right"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_d2agh"), ExtResource("9_fpo3a"), ExtResource("8_d2agh"), ExtResource("10_kyfeq")]
+}
+
+[sub_resource type="Animation" id="Animation_e0pgg"]
+resource_name = "walk_up"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_5mkjs"), ExtResource("12_yybc7"), ExtResource("11_5mkjs"), ExtResource("13_lv4bx")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8l73k"]
