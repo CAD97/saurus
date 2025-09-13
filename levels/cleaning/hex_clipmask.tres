@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://y04ixaogsyvd"]
+
+[ext_resource type="Shader" uid="uid://cpfoopji3f43f" path="res://levels/cleaning/hex_clipmask.gdshader" id="1_mwdmy"]
+
+[resource]
+shader = ExtResource("1_mwdmy")

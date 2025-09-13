@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cts057vqx51jq"]
+
+[ext_resource type="Script" uid="uid://bsu780d02gfug" path="res://levels/cleaning/fossil_rock.gd" id="1_xjxhi"]
+[ext_resource type="Texture2D" uid="uid://bmsw7c1eys33o" path="res://levels/cleaning/ph_rock.png" id="2_5f0jk"]
+[ext_resource type="Material" uid="uid://y04ixaogsyvd" path="res://levels/cleaning/hex_clipmask.tres" id="2_y1fae"]
+
+[node name="FossilRock" type="Node2D"]
+script = ExtResource("1_xjxhi")
+
+[node name="Layer1" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_y1fae")
+texture = ExtResource("2_5f0jk")
