@@ -1,9 +1,8 @@
 extends CharacterBody3D
 
 
-var GRAVITY: Vector3 = ProjectSettings.get_setting("physics/3d/default_gravity") * ProjectSettings.get_setting("physics/3d/default_gravity_vector")
-
 @export var move_speed: float = 1.0
+
 var move_intent: Vector2 = Vector2.ZERO
 
 
@@ -14,7 +13,7 @@ func _physics_process(delta: float) -> void:
 		move_intent = Vector2.ZERO
 	velocity.x = move_intent.x * move_speed
 	velocity.z = move_intent.y * move_speed
-	velocity += GRAVITY * delta
+	velocity += get_gravity() * delta
 	move_and_slide()
 	
 	if global_position.y < -20:

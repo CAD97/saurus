@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://baco2xlyhqhrt"]
+[gd_scene load_steps=7 format=3 uid="uid://baco2xlyhqhrt"]
 
 [ext_resource type="PackedScene" uid="uid://c2tybfs8g3oej" path="res://scenes/camera/overworld_camera.tscn" id="1_ly7m0"]
 [ext_resource type="PackedScene" uid="uid://ds1p5u0p4svb" path="res://characters/player/player.tscn" id="3_3mtnd"]
 [ext_resource type="PackedScene" uid="uid://bqjsslly8et7k" path="res://blockout/blockout_floor_dark.tscn" id="3_ly7m0"]
 [ext_resource type="PackedScene" uid="uid://do14h213q6bpu" path="res://blockout/blockout_stair_dark.tscn" id="4_4a2hv"]
+[ext_resource type="PackedScene" uid="uid://qdqbbhyi0rrc" path="res://blockout/blockout_wall_orange.tscn" id="5_4a2hv"]
 [ext_resource type="PackedScene" uid="uid://dps8xpacko14u" path="res://blockout/blockout_wall_dark.tscn" id="5_vrjsa"]
 
 [node name="Playroom" type="Node3D"]
@@ -18,66 +19,87 @@ shadow_enabled = true
 directional_shadow_mode = 0
 
 [node name="Player" parent="." instance=ExtResource("3_3mtnd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-floor_constant_speed = true
-floor_max_angle = 0.802851
-move_speed = 5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.40461, 0)
 
 [node name="Blockout" type="CSGCombiner3D" parent="."]
 use_collision = true
 
 [node name="BlockoutFloorDark" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-
-[node name="BlockoutFloorDark3" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -4)
-size = Vector3(13, 1, 7)
-
-[node name="BlockoutFloorDark2" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
-size = Vector3(1, 1, 3)
-
-[node name="BlockoutStairDark" parent="Blockout" instance=ExtResource("4_4a2hv")]
-transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0.998116, 1.51071)
-size = Vector3(1, 0.705078, 3.53424)
-
-[node name="BlockoutWallDark" parent="Blockout" instance=ExtResource("5_vrjsa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
-size = Vector3(11, 2, 1)
-
-[node name="BlockoutFloorDark4" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
-size = Vector3(5, 1, 1)
-
-[node name="BlockoutFloorDark5" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.5)
-size = Vector3(1, 1, 2)
-
-[node name="BlockoutFloorDark6" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
-
-[node name="BlockoutFloorDark7" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, 0.5)
-size = Vector3(3, 1, 2)
-
-[node name="BlockoutWallDark2" parent="Blockout" instance=ExtResource("5_vrjsa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -0.5)
-size = Vector3(1, 2, 2)
-
-[node name="BlockoutWallDark3" parent="Blockout" instance=ExtResource("5_vrjsa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.5, 1)
-size = Vector3(3, 2, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.5, 0)
+size = Vector3(10, 1, 2)
 
 [node name="BlockoutFloorDark8" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 2)
-size = Vector3(3, 1, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0.5, 7)
+size = Vector3(10, 1, 2)
 
-[node name="BlockoutFloorDark9" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, 1)
-size = Vector3(4, 1, 3)
+[node name="BlockoutFloorDark6" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+size = Vector3(2, 1, 2)
 
-[node name="BlockoutFloorDark10" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 3)
+[node name="BlockoutFloorDark7" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 8)
+size = Vector3(2, 1, 4)
 
 [node name="BlockoutFloorDark11" parent="Blockout" instance=ExtResource("3_ly7m0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 11)
+size = Vector3(34, 1, 2)
+
+[node name="BlockoutFloorDark9" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, 9)
+size = Vector3(2, 1, 2)
+
+[node name="BlockoutFloorDark10" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 9)
+size = Vector3(2, 1, 2)
+
+[node name="BlockoutFloorDark5" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.5, 3.5)
+size = Vector3(2, 1, 9)
+
+[node name="BlockoutFloorDark4" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, 3.5)
+size = Vector3(10, 1, 9)
+
+[node name="BlockoutFloorDark2" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 5.5, -6.5)
+size = Vector3(31, 1, 11)
+
+[node name="BlockoutFloorDark3" parent="Blockout" instance=ExtResource("3_ly7m0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 5.5, -3)
+size = Vector3(5, 1, 18)
+
+[node name="BlockoutWallDark" parent="Blockout" instance=ExtResource("5_vrjsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2.5, -1.5)
+size = Vector3(32, 5, 1)
+
+[node name="BlockoutWallDark2" parent="Blockout" instance=ExtResource("5_vrjsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 2.5, 2)
+size = Vector3(1, 5, 8)
+
+[node name="BlockoutWallDark3" parent="Blockout" instance=ExtResource("5_vrjsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 2.5, 5.5)
+size = Vector3(4, 5, 1)
+
+[node name="BlockoutStairOrange" parent="Blockout" instance=ExtResource("5_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 2.5, -0.5)
+size = Vector3(1, 3, 1)
+
+[node name="BlockoutStairOrange2" parent="Blockout" instance=ExtResource("5_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 2.5, -0.5)
+size = Vector3(1, 3, 1)
+
+[node name="BlockoutStairOrange3" parent="Blockout" instance=ExtResource("5_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 2.5, -0.5)
+size = Vector3(1, 3, 1)
+
+[node name="BlockoutStairDark" parent="Blockout" instance=ExtResource("4_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 2.81534, 3.47848)
+size = Vector3(2, 1, 8)
+
+[node name="BlockoutStairOrange4" parent="Blockout" instance=ExtResource("5_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 6.25, -1.125)
+size = Vector3(8.5, 0.5, 0.25)
+
+[node name="BlockoutStairOrange5" parent="Blockout" instance=ExtResource("5_4a2hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25, 6.25, -1.125)
+size = Vector3(13, 0.5, 0.25)
