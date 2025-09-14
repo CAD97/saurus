@@ -15,8 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cyve4n0etcxpp" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0160.png" id="13_lv4bx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
-radius = 0.222445
-height = 0.638385
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gqopd"]
 animation = &"idle_down"
@@ -344,22 +342,24 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D"]
+floor_constant_speed = true
+floor_max_angle = 0.802851
 floor_snap_length = 0.25
 script = ExtResource("1_508ok")
-move_speed = 7.0
+move_speed = 10.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.41, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1.4, 0, 0, 0, 1, 0, 0, 0)
+gi_mode = 2
 centered = false
 offset = Vector2(-8, 0)
-pixel_size = 0.05
+pixel_size = 0.1
 billboard = 2
-double_sided = false
 texture_filter = 0
 texture = ExtResource("2_xxgcw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.319, 0.001)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_xxgcw")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
