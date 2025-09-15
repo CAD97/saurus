@@ -11,6 +11,10 @@ config_version=5
 [application]
 
 config/name="saurus"
+config/name_localized={
+"en": "Bone Wars"
+}
+config/version="prototype"
 run/main_scene="uid://baco2xlyhqhrt"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -28,6 +32,10 @@ window/vsync/vsync_mode=2
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/tres_localization/plugin.cfg")
 
 [input]
 
@@ -59,6 +67,13 @@ move_down={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":12,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://locale/en.po")
+locale/translations_pot_files=PackedStringArray("res://dinos/lystrosaurus/lystrosaurus.tres")
+pseudolocalization/use_pseudolocalization=true
+locale/locale_filter_mode=0
 
 [rendering]
 

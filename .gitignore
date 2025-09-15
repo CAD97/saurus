@@ -10,6 +10,8 @@ export_credentials.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
+# Compiled translations (generated from PO files)
+*.mo
 
 # Mono-specific ignores
 .mono/
