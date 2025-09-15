@@ -14,8 +14,11 @@ func _parse_file(path: String) -> Array[PackedStringArray]:
 		if prop["type"] == TYPE_STRING or prop["type"] == TYPE_STRING_NAME:
 			if prop["hint"] == PROPERTY_HINT_LOCALIZABLE_STRING:
 				var msgid := res.get(prop["name"])
-				var msgtxt = msgid
-				msgs.append(PackedStringArray([msgid, msgtxt]))
+				var msgctxt = res.get(prop["hint_string"])
+				if msgctxt:
+					msgs.append(PackedStringArray([msgid, msgctxt]))
+				else:
+					msgs.append(PackedStringArray([msgid]))
 	
 	return msgs
 
