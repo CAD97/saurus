@@ -1,2 +1,7 @@
 bundles:
   - 3
+
+"files": [{
+  "source": "/translations/saurus.pot",
+  "translation": "/translations/%locale%.po"
+}]
