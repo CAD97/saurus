@@ -1,6 +1,5 @@
 [gd_scene load_steps=59 format=3 uid="uid://ds1p5u0p4svb"]
 
-[ext_resource type="Script" uid="uid://dysv25p817cda" path="res://characters/player/player.gd" id="1_508ok"]
 [ext_resource type="Texture2D" uid="uid://olcj6phtiowd" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0105.png" id="2_xxgcw"]
 [ext_resource type="Texture2D" uid="uid://cwt20pls40ikc" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0132.png" id="3_gqopd"]
 [ext_resource type="Texture2D" uid="uid://66iw23ga88qe" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0159.png" id="4_icpky"]
@@ -13,6 +12,29 @@
 [ext_resource type="Texture2D" uid="uid://buytel0yae7kd" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0106.png" id="11_5mkjs"]
 [ext_resource type="Texture2D" uid="uid://e88ea2wp81so" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0133.png" id="12_yybc7"]
 [ext_resource type="Texture2D" uid="uid://cyve4n0etcxpp" path="res://addons/kenney_rpg_urban_pack/tiles/tile_0160.png" id="13_lv4bx"]
+
+[sub_resource type="GDScript" id="GDScript_on558"]
+resource_name = "Player"
+script/source = "extends CharacterBody3D
+
+
+@export var move_speed: float = 1.0
+
+var _move_intent: Vector2 = Vector2.ZERO
+
+
+func _physics_process(delta: float) -> void:
+	_move_intent = Input.get_vector(\"move_left\", \"move_right\", \"move_up\", \"move_down\").normalized()
+	if not is_on_floor():
+		_move_intent = Vector2.ZERO
+	velocity.x = _move_intent.x * move_speed
+	velocity.z = _move_intent.y * move_speed
+	velocity += get_gravity() * delta
+	move_and_slide()
+
+	if global_position.y < -20:
+		global_position = Vector3(0, 20, 0)
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxgcw"]
 
@@ -57,91 +79,91 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jgd8i"]
 advance_mode = 2
-advance_expression = "not move_intent.is_zero_approx()"
+advance_expression = "not _move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7b6hw"]
 advance_mode = 2
-advance_expression = "not move_intent.is_zero_approx()"
+advance_expression = "not _move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4cx7u"]
 advance_mode = 2
-advance_expression = "not move_intent.is_zero_approx()"
+advance_expression = "not _move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w53g3"]
 advance_mode = 2
-advance_expression = "not move_intent.is_zero_approx()"
+advance_expression = "not _move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gqopd"]
 advance_mode = 2
-advance_expression = "move_intent.is_zero_approx()"
+advance_expression = "_move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_icpky"]
 advance_mode = 2
-advance_expression = "move_intent.is_zero_approx()"
+advance_expression = "_move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_58jvb"]
 advance_mode = 2
-advance_expression = "move_intent.is_zero_approx()"
+advance_expression = "_move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqrcq"]
 advance_mode = 2
-advance_expression = "move_intent.is_zero_approx()"
+advance_expression = "_move_intent.is_zero_approx()"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d2agh"]
 advance_mode = 2
-advance_expression = "abs(move_intent.y) < 0.5 and move_intent.x < 0"
+advance_expression = "abs(_move_intent.y) < 0.5 and _move_intent.x < 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fpo3a"]
 advance_mode = 2
-advance_expression = "abs(move_intent.x) < 0.5 and move_intent.y < 0"
+advance_expression = "abs(_move_intent.x) < 0.5 and _move_intent.y < 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kyfeq"]
 advance_mode = 2
-advance_expression = "abs(move_intent.y) < 0.5 and move_intent.x > 0"
+advance_expression = "abs(_move_intent.y) < 0.5 and _move_intent.x > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5mkjs"]
 advance_mode = 2
-advance_expression = "abs(move_intent.x) < 0.5 and move_intent.y > 0"
+advance_expression = "abs(_move_intent.x) < 0.5 and _move_intent.y > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e0pgg"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "abs(move_intent.x) < 0.5 and move_intent.y < 0"
+advance_expression = "abs(_move_intent.x) < 0.5 and _move_intent.y < 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sbttr"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "abs(move_intent.y) < 0.5 and move_intent.x < 0"
+advance_expression = "abs(_move_intent.y) < 0.5 and _move_intent.x < 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6pj1p"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "abs(move_intent.x) < 0.5 and move_intent.y > 0"
+advance_expression = "abs(_move_intent.x) < 0.5 and _move_intent.y > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3a7m8"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "abs(move_intent.y) < 0.5 and move_intent.x > 0"
+advance_expression = "abs(_move_intent.y) < 0.5 and _move_intent.x > 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y3et5"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "(move_intent.x <= 0 and not move_intent.y == 0) or (move_intent.x < 0.5 and abs(move_intent.y) > 0.5)"
+advance_expression = "(_move_intent.x <= 0 and not _move_intent.y == 0) or (_move_intent.x < 0.5 and abs(_move_intent.y) > 0.5)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0mbv2"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "(move_intent.y <= 0 and not move_intent.x == 0) or (move_intent.y < 0.5 and abs(move_intent.x) > 0.5)"
+advance_expression = "(_move_intent.y <= 0 and not _move_intent.x == 0) or (_move_intent.y < 0.5 and abs(_move_intent.x) > 0.5)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8v65i"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "(move_intent.x >= 0 and not move_intent.y == 0) or (move_intent.x > -0.5 and abs(move_intent.y) > 0.5)"
+advance_expression = "(_move_intent.x >= 0 and not _move_intent.y == 0) or (_move_intent.x > -0.5 and abs(_move_intent.y) > 0.5)"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jepfe"]
 switch_mode = 1
 advance_mode = 2
-advance_expression = "(move_intent.y >= 0 and not move_intent.x == 0) or (move_intent.y > -0.5 and abs(move_intent.x) > 0.5)"
+advance_expression = "(_move_intent.y >= 0 and not _move_intent.x == 0) or (_move_intent.y > -0.5 and abs(_move_intent.x) > 0.5)"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_icpky"]
 states/End/position = Vector2(-35, 261)
@@ -167,7 +189,7 @@ states/walk_to_walk/position = Vector2(724, -82)
 states/walk_up/node = SubResource("AnimationNodeAnimation_yybc7")
 states/walk_up/position = Vector2(542, -153)
 transitions = ["Start", "idle_down", SubResource("AnimationNodeStateMachineTransition_lv4bx"), "idle_up", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_jgd8i"), "idle_left", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_7b6hw"), "idle_right", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_4cx7u"), "idle_down", "idle_to_walk", SubResource("AnimationNodeStateMachineTransition_w53g3"), "walk_left", "idle_left", SubResource("AnimationNodeStateMachineTransition_gqopd"), "walk_up", "idle_up", SubResource("AnimationNodeStateMachineTransition_icpky"), "walk_right", "idle_right", SubResource("AnimationNodeStateMachineTransition_58jvb"), "walk_down", "idle_down", SubResource("AnimationNodeStateMachineTransition_aqrcq"), "idle_to_walk", "walk_left", SubResource("AnimationNodeStateMachineTransition_d2agh"), "idle_to_walk", "walk_up", SubResource("AnimationNodeStateMachineTransition_fpo3a"), "idle_to_walk", "walk_right", SubResource("AnimationNodeStateMachineTransition_kyfeq"), "idle_to_walk", "walk_down", SubResource("AnimationNodeStateMachineTransition_5mkjs"), "walk_to_walk", "walk_up", SubResource("AnimationNodeStateMachineTransition_e0pgg"), "walk_to_walk", "walk_left", SubResource("AnimationNodeStateMachineTransition_sbttr"), "walk_to_walk", "walk_down", SubResource("AnimationNodeStateMachineTransition_6pj1p"), "walk_to_walk", "walk_right", SubResource("AnimationNodeStateMachineTransition_3a7m8"), "walk_right", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_y3et5"), "walk_down", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_0mbv2"), "walk_left", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_8v65i"), "walk_up", "walk_to_walk", SubResource("AnimationNodeStateMachineTransition_jepfe")]
-graph_offset = Vector2(-372, -205)
+graph_offset = Vector2(-576.25, -17.637367)
 
 [sub_resource type="Animation" id="Animation_gqopd"]
 length = 0.001
@@ -345,7 +367,7 @@ _data = {
 floor_constant_speed = true
 floor_max_angle = 0.802851
 floor_snap_length = 0.25
-script = ExtResource("1_508ok")
+script = SubResource("GDScript_on558")
 move_speed = 10.0
 
 [node name="Sprite3D" type="Sprite3D" parent="."]

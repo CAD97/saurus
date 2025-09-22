@@ -6,8 +6,7 @@
 
 [sub_resource type="GDScript" id="GDScript_tviqj"]
 resource_name = "DinoLayoutWidget"
-script/source = "class_name DinoLayoutWidget
-extends Control
+script/source = "extends Control
 ## The plot of spots where dinos can stand.
 ##
 ## Coordinate map:
@@ -28,16 +27,19 @@ signal rotate_clicked(dir: ClockDirection)
 @export var mega := false
 
 
+
 func _ready() -> void:
 	if mega:
-		%StandardOnly.get_parent_control().remove_child(%StandardOnly)
+		var standard_only: Control = %StandardOnly
+		standard_only.get_parent_control().remove_child(standard_only)
 	else:
-		%MegaOnly.get_parent_control().remove_child(%MegaOnly)
+		var mega_only: Control = %MegaOnly
+		mega_only.get_parent_control().remove_child(mega_only)
 
 func _emit_hex_clicked(pos: Vector2i) -> void:
 	hex_clicked.emit(pos)
 
-func _emit_rotate_clicked(dir: ClockDirection):
+func _emit_rotate_clicked(dir: ClockDirection) -> void:
 	rotate_clicked.emit(dir)
 "
 
