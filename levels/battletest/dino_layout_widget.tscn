@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxlry680q2qof"]
+[gd_scene load_steps=5 format=3 uid="uid://bxlry680q2qof"]
 
 [ext_resource type="Texture2D" uid="uid://btxa5hsnqm1kh" path="res://levels/battletest/dino_hex_ui.png" id="1_3inla"]
+[ext_resource type="Script" uid="uid://bam2ith2ald16" path="res://controls/clickable_control.gd" id="2_gskr2"]
 [ext_resource type="Texture2D" uid="uid://duyc1k225rn51" path="res://levels/battletest/dino_hex_rotate.png" id="2_tviqj"]
 
 [sub_resource type="GDScript" id="GDScript_tviqj"]
@@ -11,195 +12,352 @@ extends Control
 ##
 ## Coordinate map:
 ## [codeblock lang=text]
-## .   4,+2    2,+2
-## 5,+1    3,+1    1,+1
-##     4,+0    2,+0    0,+0
-## 5,-1    3,-1    1,-1
-##     4,-2    2,-2
+## .       4,+2    2,+2
+##     5,+1    3,+1    1,+1
+## 6,+0    4,+0    2,+0    0,+0
+##     5,-1    3,-1    1,-1
+##         4,-2    2,-2
 ## [/codeblock]
 
 
 ## Emitted when a hex is clicked.
 signal hex_clicked(pos: Vector2i)
+## Emitted when a rotation arrow is clicked.
+signal rotate_clicked(dir: ClockDirection)
 
+@export var mega := false
+
+
+func _ready() -> void:
+	if mega:
+		%StandardOnly.get_parent_control().remove_child(%StandardOnly)
+	else:
+		%MegaOnly.get_parent_control().remove_child(%MegaOnly)
 
 func _emit_hex_clicked(pos: Vector2i) -> void:
 	hex_clicked.emit(pos)
+
+func _emit_rotate_clicked(dir: ClockDirection):
+	rotate_clicked.emit(dir)
 "
 
-[node name="DinoLayoutWidget" type="Control"]
-layout_mode = 3
+[node name="DinoLayoutWidget" type="AspectRatioContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -650.0
+offset_right = 650.0
+grow_vertical = 0
+script = SubResource("GDScript_tviqj")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(864, 864)
+layout_mode = 2
+
+[node name="StandardOnly" type="Control" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_tviqj")
 
-[node name="Hex13" type="TextureRect" parent="."]
+[node name="RotateCCW" type="TextureRect" parent="Control/StandardOnly"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = -358.0
-offset_right = 47.0
-offset_bottom = -250.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex17" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = -47.0
-offset_top = -191.0
-offset_right = 47.0
-offset_bottom = -83.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex21" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -442.0
-offset_right = 94.0
-offset_bottom = -334.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex26" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -276.0
-offset_right = 94.0
-offset_bottom = -168.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex29" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -108.0
-offset_right = 94.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex33" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -358.0
-offset_right = 144.0
-offset_bottom = -250.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex37" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 50.0
-offset_top = -191.0
-offset_right = 144.0
-offset_bottom = -83.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex41" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 99.0
-offset_top = -441.0
-offset_right = 193.0
-offset_bottom = -333.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex45" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 99.0
-offset_top = -275.0
-offset_right = 193.0
-offset_bottom = -167.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex49" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 99.0
-offset_top = -108.0
-offset_right = 193.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex53" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 147.0
-offset_top = -358.0
-offset_right = 241.0
-offset_bottom = -250.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex57" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 147.0
-offset_top = -191.0
-offset_right = 241.0
-offset_bottom = -83.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="Hex65" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 197.0
-offset_top = -275.0
-offset_right = 291.0
-offset_bottom = -167.0
-grow_vertical = 0
-texture = ExtResource("1_3inla")
-
-[node name="RotateCCW" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 195.0
-offset_top = 2062.0
-offset_right = 276.0
-offset_bottom = 2143.0
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.7
+anchor_right = 0.75
+anchor_bottom = 0.7
+offset_left = 107.0
+offset_top = -56.799988
+offset_right = 269.0
+offset_bottom = 105.20001
+grow_vertical = 2
+pivot_offset = Vector2(81, 81)
 texture = ExtResource("2_tviqj")
+script = ExtResource("2_gskr2")
 
-[node name="RotateCW" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 2062.0
-offset_right = 85.0
-offset_bottom = 2143.0
+[node name="RotateCW" type="TextureRect" parent="Control/StandardOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -269.0
+offset_top = -57.0
+offset_right = -107.0
+offset_bottom = 105.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(81, 81)
 texture = ExtResource("2_tviqj")
 flip_h = true
+script = ExtResource("2_gskr2")
+
+[node name="MegaOnly" type="Control" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Hex06" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.5
+anchor_right = 0.125
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex13" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.25
+anchor_bottom = 0.3
+offset_left = -94.0
+offset_top = -108.00006
+offset_right = 94.0
+offset_bottom = 107.99994
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex17" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.7
+anchor_right = 0.25
+anchor_bottom = 0.7
+offset_left = -94.0
+offset_top = -107.99994
+offset_right = 94.0
+offset_bottom = 108.00006
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex21" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.1
+anchor_right = 0.375
+anchor_bottom = 0.1
+offset_left = -94.0
+offset_top = -107.99998
+offset_right = 94.0
+offset_bottom = 108.00002
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex29" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.9
+anchor_right = 0.375
+anchor_bottom = 0.9
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex41" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.1
+anchor_right = 0.625
+anchor_bottom = 0.1
+offset_left = -94.0
+offset_top = -107.99998
+offset_right = 94.0
+offset_bottom = 108.00002
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex45" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.5
+anchor_right = 0.625
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex49" type="TextureRect" parent="Control/MegaOnly"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.625
+anchor_top = 0.9
+anchor_right = 0.625
+anchor_bottom = 0.9
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex26" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.375
+anchor_top = 0.5
+anchor_right = 0.375
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex33" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hex37" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex53" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.3
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex57" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.7
+anchor_right = 0.75
+anchor_bottom = 0.7
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[node name="Hex65" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.875
+anchor_top = 0.5
+anchor_right = 0.875
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -108.0
+offset_right = 94.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(94, 108)
+texture = ExtResource("1_3inla")
+script = ExtResource("2_gskr2")
+
+[connection signal="mouse_clicked" from="Control/StandardOnly/RotateCCW" to="." method="_emit_rotate_clicked" binds= [1]]
+[connection signal="mouse_clicked" from="Control/StandardOnly/RotateCW" to="." method="_emit_rotate_clicked" binds= [0]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex06" to="." method="_emit_hex_clicked" binds= [Vector2i(6, 0)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex13" to="." method="_emit_hex_clicked" binds= [Vector2i(5, 1)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex17" to="." method="_emit_hex_clicked" binds= [Vector2i(5, -1)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex21" to="." method="_emit_hex_clicked" binds= [Vector2i(4, 2)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex29" to="." method="_emit_hex_clicked" binds= [Vector2i(4, -2)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex41" to="." method="_emit_hex_clicked" binds= [Vector2i(2, 2)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex45" to="." method="_emit_hex_clicked" binds= [Vector2i(2, 0)]]
+[connection signal="mouse_clicked" from="Control/MegaOnly/Hex49" to="." method="_emit_hex_clicked" binds= [Vector2i(2, -2)]]
+[connection signal="mouse_clicked" from="Control/Hex26" to="." method="_emit_hex_clicked" binds= [Vector2i(4, 0)]]
+[connection signal="mouse_clicked" from="Control/Hex33" to="." method="_emit_hex_clicked" binds= [Vector2i(3, 1)]]
+[connection signal="mouse_clicked" from="Control/Hex37" to="." method="_emit_hex_clicked" binds= [Vector2i(3, -1)]]
+[connection signal="mouse_clicked" from="Control/Hex53" to="." method="_emit_hex_clicked" binds= [Vector2i(1, 1)]]
+[connection signal="mouse_clicked" from="Control/Hex57" to="." method="_emit_hex_clicked" binds= [Vector2i(1, -1)]]
+[connection signal="mouse_clicked" from="Control/Hex65" to="." method="_emit_hex_clicked" binds= [Vector2i(0, 0)]]
