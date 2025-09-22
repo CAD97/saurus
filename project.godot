@@ -19,7 +19,9 @@ run/main_scene="uid://baco2xlyhqhrt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/image="uid://bgw3m0s3mof8f"
 config/icon="uid://cy1pbqee3p0fy"
-boot_splash/minimum_display_time=2000
+boot_splash/minimum_display_time=1000
+boot_splash/minimum_display_time.editor_hint=0
+boot_splash/image.editor_hint=NodePath("")
 
 [debug]
 
