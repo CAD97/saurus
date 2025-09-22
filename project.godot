@@ -8,6 +8,10 @@
 
 config_version=5
 
+[addons]
+
+exclude_colored_folders/folder_color_operation/gray=1
+
 [application]
 
 config/name="saurus"
@@ -49,7 +53,17 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/tres_localization/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/exclude_colored_folders/plugin.cfg", "res://addons/tres_localization/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/AsepriteWizard/": "gray",
+"res://addons/exclude_colored_folders/": "gray",
+"res://addons/godot-git-plugin/": "gray",
+"res://addons/godot-minimal-theme/": "gray",
+"res://addons/tres_localization/": "gray"
+}
 
 [gui]
 
