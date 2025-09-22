@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dewugxs1ibv1g"]
 
 [ext_resource type="Script" uid="uid://5lqjmj43xhsd" path="res://controls/max_aspect_container.gd" id="1_hbf8x"]
-[ext_resource type="PackedScene" uid="uid://rrostxmlxcfs" path="res://levels/battletest/ap_widget.tscn" id="1_xfmf7"]
+[ext_resource type="PackedScene" uid="uid://rrostxmlxcfs" path="res://levels/battletest/battle_widget.tscn" id="1_xfmf7"]
 
 [node name="Battletest" type="Node3D"]
 
@@ -19,10 +19,10 @@ script = ExtResource("1_hbf8x")
 max_width_ratio = 1.8
 metadata/_custom_type_script = "uid://5lqjmj43xhsd"
 
-[node name="LeftAPWidget" parent="UI" instance=ExtResource("1_xfmf7")]
+[node name="LeftBattleWidget" parent="UI" instance=ExtResource("1_xfmf7")]
 layout_mode = 2
 
-[node name="RightAPWidget" parent="UI" instance=ExtResource("1_xfmf7")]
+[node name="RightBattleWidget" parent="UI" instance=ExtResource("1_xfmf7")]
 layout_mode = 2
 size_flags_horizontal = 8
 flip = true

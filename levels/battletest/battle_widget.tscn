@@ -1,21 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://rrostxmlxcfs"]
+[gd_scene load_steps=8 format=3 uid="uid://rrostxmlxcfs"]
 
 [ext_resource type="Texture2D" uid="uid://cw4bwhx1l1nmh" path="res://levels/battletest/action_widget_bg.png" id="1_4lf0k"]
 [ext_resource type="Texture2D" uid="uid://6oo7hlqd1xqg" path="res://levels/battletest/action_bar_under.png" id="2_8bwwk"]
 [ext_resource type="Texture2D" uid="uid://dqjkt4fr0efey" path="res://levels/battletest/action_bar_over.png" id="3_1uwst"]
 [ext_resource type="Texture2D" uid="uid://dc6kf8r3pq1jh" path="res://levels/battletest/action_bar_progress.png" id="4_31iqd"]
+[ext_resource type="PackedScene" uid="uid://bxlry680q2qof" path="res://levels/battletest/dino_layout_widget.tscn" id="5_8bwwk"]
 
 [sub_resource type="GDScript" id="GDScript_4lf0k"]
 resource_name = "APWidget"
 script/source = "@tool
-class_name APWidget
+class_name battle_widget
 extends Control
 
 
 @export var flip := false:
 	get: return %TextureRect.flip_h
-	set(new):
-		%TextureRect.flip_h = new
+	set(value):
+		%TextureRect.flip_h = value
 		var bar_anchor_left = %ProgressBar.anchor_left
 		var bar_anchor_right = %ProgressBar.anchor_right
 		if %TextureRect.flip_h:
@@ -24,33 +25,35 @@ extends Control
 			%Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			%ProgressBar.anchor_left = 1.0 - bar_anchor_right
 			%ProgressBar.anchor_right = 1.0 - bar_anchor_left
+			%DinoLayoutWidget.scale.x = -1.0
 		else:
 			%TextureRect.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
 			%ProgressBar.fill_mode = ProgressBar.FILL_BEGIN_TO_END
 			%Label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
 			%ProgressBar.anchor_right = 1.0 - bar_anchor_left
 			%ProgressBar.anchor_left = 1.0 - bar_anchor_right
+			%DinoLayoutWidget.scale.x = 1.0
 
 
-@export var value: int = 10:
+@export var ap: int = 10:
 	get: return int(%ProgressBar.value)
-	set(new):
+	set(value):
 		if is_node_ready():
-			%ProgressBar.value = float(new)
+			%ProgressBar.value = float(value)
 			_update_label()
 
 
-@export var max_value: int = 20:
+@export var max_ap: int = 20:
 	get: return int(%ProgressBar.max_value)
-	set(new):
+	set(value):
 		if is_node_ready():
-			%ProgressBar.max_value = float(new)
+			%ProgressBar.max_value = float(value)
 			_update_label()
 
 
 func _update_label():
 	var ts = TextServerManager.get_primary_interface()
-	%Label.text = \"%d/%d\" % [value, max_value].map(str).map(ts.format_number)
+	%Label.text = \"%d/%d\" % [ap, max_ap].map(str).map(ts.format_number)
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_ov8iu"]
@@ -58,7 +61,7 @@ font_size = 104
 outline_size = 20
 outline_color = Color(0, 0, 0, 1)
 
-[node name="APWidget" type="Control"]
+[node name="BattleWidget" type="Control"]
 layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
@@ -67,8 +70,19 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 script = SubResource("GDScript_4lf0k")
-value = 0
-max_value = 0
+ap = 0
+max_ap = 0
+
+[node name="DinoLayoutWidget" parent="." instance=ExtResource("5_8bwwk")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_bottom = 0.6
+offset_top = -1154.0
+offset_right = 865.0
+offset_bottom = -144.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
