@@ -1,12 +1,28 @@
-[gd_scene format=3 uid="uid://dewugxs1ibv1g"]
+[gd_scene load_steps=3 format=3 uid="uid://dewugxs1ibv1g"]
+
+[ext_resource type="Script" uid="uid://5lqjmj43xhsd" path="res://controls/max_aspect_container.gd" id="1_hbf8x"]
+[ext_resource type="PackedScene" uid="uid://rrostxmlxcfs" path="res://levels/battletest/ap_widget.tscn" id="1_xfmf7"]
 
 [node name="Battletest" type="Node3D"]
 
-[node name="UI" type="Control" parent="."]
-unique_name_in_owner = true
-layout_mode = 3
+[node name="UI" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_hbf8x")
+max_width_ratio = 1.8
+metadata/_custom_type_script = "uid://5lqjmj43xhsd"
+
+[node name="LeftAPWidget" parent="UI" instance=ExtResource("1_xfmf7")]
+layout_mode = 2
+
+[node name="RightAPWidget" parent="UI" instance=ExtResource("1_xfmf7")]
+layout_mode = 2
+size_flags_horizontal = 8
+flip = true
