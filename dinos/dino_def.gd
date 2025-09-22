@@ -1,4 +1,4 @@
-class_name DinoStats extends Resource
+class_name DinoDef extends Resource
 
 @export_custom(PROPERTY_HINT_LOCALIZABLE_STRING, "") var name: String
 @export var sprite: Texture2D
