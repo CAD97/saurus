@@ -1,11 +1,28 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2tybfs8g3oej"]
 
-[ext_resource type="Script" uid="uid://b0s02q6q0f0p8" path="res://scenes/camera/overworld_camera.gd" id="1_nsu0n"]
+[sub_resource type="GDScript" id="GDScript_8uaxi"]
+resource_name = "OverworldCamera"
+script/source = "extends Node3D
+
+
+@export var follow_nodes: Array[Node3D]
+@export var _follow_strength: float = 1
+@export var _follow_slack: float = 0.05
+
+
+func _process(delta: float) -> void:
+	if follow_nodes.size() > 0:
+		var target_pos := Vector3()
+		for node in follow_nodes:
+			target_pos += node.global_position
+		target_pos /= follow_nodes.size()
+		var pos_diff := target_pos - self.global_position
+		if pos_diff.length_squared() > _follow_slack * _follow_slack:
+			position += pos_diff * _follow_strength * delta
+"
 
 [node name="OverworldCamera" type="Node3D"]
-script = ExtResource("1_nsu0n")
-follow_strength = 3.0
-follow_slack = 0.1
+script = SubResource("GDScript_8uaxi")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 40, 40)

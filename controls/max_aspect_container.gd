@@ -43,10 +43,10 @@ func _init() -> void:
 	_on_resized()
 
 
-func _on_resized():
+func _on_resized() -> void:
 	var margins := Rect2i(0, 0, 0, 0)
 	if max_width_ratio > 0.0 and size.x/size.y > max_width_ratio:
-		var margin = size.x - size.y*max_width_ratio
+		var margin := size.x - size.y*max_width_ratio
 		match alignment_width:
 			HORIZONTAL_ALIGNMENT_LEFT:
 				margins.size.x = int(margin)
@@ -56,7 +56,7 @@ func _on_resized():
 				margins.position.x = int(margin / 2)
 				margins.size.x = int(margin / 2)
 	if max_height_ratio > 0.0 and size.y/size.x > max_height_ratio:
-		var margin = size.y - size.x*max_height_ratio
+		var margin := size.y - size.x*max_height_ratio
 		match alignment_height:
 			VERTICAL_ALIGNMENT_TOP:
 				margins.size.y = int(margin)
@@ -65,7 +65,7 @@ func _on_resized():
 			VERTICAL_ALIGNMENT_CENTER:
 				margins.position.y = int(margin / 2)
 				margins.size.y = int(margin / 2)
-	
+
 	_margin_left = margins.position.x
 	_margin_right = margins.size.x
 	_margin_top = margins.position.y
