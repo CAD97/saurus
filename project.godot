@@ -19,6 +19,14 @@ run/main_scene="uid://baco2xlyhqhrt"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=1
+
 [display]
 
 window/size/viewport_width=2160
@@ -31,6 +39,7 @@ window/vsync/vsync_mode=2
 
 [editor]
 
+script/search_in_file_extensions=PackedStringArray("gd", "gdshader", "tscn")
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
@@ -77,10 +86,9 @@ move_down={
 
 locale/translations=PackedStringArray("res://locale/en.po")
 locale/translations_pot_files=PackedStringArray("res://dinos/lystrosaurus/lystrosaurus.tres")
-pseudolocalization/use_pseudolocalization=true
-locale/locale_filter_mode=0
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=2
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
