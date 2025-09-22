@@ -25,4 +25,3 @@ layout_mode = 2
 [node name="RightBattleWidget" parent="UI" instance=ExtResource("1_xfmf7")]
 layout_mode = 2
 size_flags_horizontal = 8
-flip = true
