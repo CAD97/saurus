@@ -1,0 +1,205 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxlry680q2qof"]
+
+[ext_resource type="Texture2D" uid="uid://btxa5hsnqm1kh" path="res://levels/battletest/dino_hex_ui.png" id="1_3inla"]
+[ext_resource type="Texture2D" uid="uid://duyc1k225rn51" path="res://levels/battletest/dino_hex_rotate.png" id="2_tviqj"]
+
+[sub_resource type="GDScript" id="GDScript_tviqj"]
+resource_name = "DinoLayoutWidget"
+script/source = "class_name DinoLayoutWidget
+extends Control
+## The plot of spots where dinos can stand.
+##
+## Coordinate map:
+## [codeblock lang=text]
+## .   4,+2    2,+2
+## 5,+1    3,+1    1,+1
+##     4,+0    2,+0    0,+0
+## 5,-1    3,-1    1,-1
+##     4,-2    2,-2
+## [/codeblock]
+
+
+## Emitted when a hex is clicked.
+signal hex_clicked(pos: Vector2i)
+
+
+func _emit_hex_clicked(pos: Vector2i) -> void:
+	hex_clicked.emit(pos)
+"
+
+[node name="DinoLayoutWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_tviqj")
+
+[node name="Hex13" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -358.0
+offset_right = 47.0
+offset_bottom = -250.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex17" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -191.0
+offset_right = 47.0
+offset_bottom = -83.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex21" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -442.0
+offset_right = 94.0
+offset_bottom = -334.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex26" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -276.0
+offset_right = 94.0
+offset_bottom = -168.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex29" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_right = 94.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex33" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -358.0
+offset_right = 144.0
+offset_bottom = -250.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex37" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -191.0
+offset_right = 144.0
+offset_bottom = -83.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex41" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = -441.0
+offset_right = 193.0
+offset_bottom = -333.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex45" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = -275.0
+offset_right = 193.0
+offset_bottom = -167.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex49" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 99.0
+offset_top = -108.0
+offset_right = 193.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex53" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 147.0
+offset_top = -358.0
+offset_right = 241.0
+offset_bottom = -250.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex57" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 147.0
+offset_top = -191.0
+offset_right = 241.0
+offset_bottom = -83.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="Hex65" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 197.0
+offset_top = -275.0
+offset_right = 291.0
+offset_bottom = -167.0
+grow_vertical = 0
+texture = ExtResource("1_3inla")
+
+[node name="RotateCCW" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 195.0
+offset_top = 2062.0
+offset_right = 276.0
+offset_bottom = 2143.0
+texture = ExtResource("2_tviqj")
+
+[node name="RotateCW" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 2062.0
+offset_right = 85.0
+offset_bottom = 2143.0
+texture = ExtResource("2_tviqj")
+flip_h = true
