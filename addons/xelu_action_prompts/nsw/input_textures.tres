@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="JoyInputTextures" load_steps=20 format=3 uid="uid://dhi5p1hf0iph4"]
+
+[ext_resource type="Texture2D" uid="uid://c0c86ugdj8ekd" path="res://addons/xelu_action_prompts/nsw/axis_left.png" id="1_8dmb7"]
+[ext_resource type="Script" uid="uid://bbsns7yudeodh" path="res://addons/xelu_action_prompts/joy_input_textures.gd" id="1_t23tu"]
+[ext_resource type="Texture2D" uid="uid://b1qogenkbkjt6" path="res://addons/xelu_action_prompts/nsw/axis_right.png" id="2_8rd4w"]
+[ext_resource type="Texture2D" uid="uid://dl8v43jd8l8yd" path="res://addons/xelu_action_prompts/nsw/axis_trigger_left.png" id="3_2472x"]
+[ext_resource type="Texture2D" uid="uid://cgj2iul11smi2" path="res://addons/xelu_action_prompts/nsw/axis_trigger_right.png" id="4_vbsiu"]
+[ext_resource type="Texture2D" uid="uid://bc68q2kyw8tiy" path="res://addons/xelu_action_prompts/nsw/button_a.png" id="5_opjt1"]
+[ext_resource type="Texture2D" uid="uid://ddhcdvr2uxh4c" path="res://addons/xelu_action_prompts/nsw/button_b.png" id="6_frowx"]
+[ext_resource type="Texture2D" uid="uid://c4y84fvomkw5t" path="res://addons/xelu_action_prompts/nsw/button_x.png" id="7_5gtmf"]
+[ext_resource type="Texture2D" uid="uid://cfks2ogjqgmsj" path="res://addons/xelu_action_prompts/nsw/button_y.png" id="8_k1tj0"]
+[ext_resource type="Texture2D" uid="uid://beycmb5c7rlh7" path="res://addons/xelu_action_prompts/nsw/button_back.png" id="9_45fht"]
+[ext_resource type="Texture2D" uid="uid://cm8h6si60w05i" path="res://addons/xelu_action_prompts/nsw/button_start.png" id="10_g6ncd"]
+[ext_resource type="Texture2D" uid="uid://b15cx8dwhya6u" path="res://addons/xelu_action_prompts/nsw/button_left_stick.png" id="11_t74fk"]
+[ext_resource type="Texture2D" uid="uid://ctcvptt5lx0bi" path="res://addons/xelu_action_prompts/nsw/button_right_stick.png" id="12_o6mrv"]
+[ext_resource type="Texture2D" uid="uid://shhjdm4cedvh" path="res://addons/xelu_action_prompts/nsw/button_left_shoulder.png" id="13_dnt2a"]
+[ext_resource type="Texture2D" uid="uid://htfdmgwp6afv" path="res://addons/xelu_action_prompts/nsw/button_right_shoulder.png" id="14_vrwhs"]
+[ext_resource type="Texture2D" uid="uid://cuq7tjepmhn3w" path="res://addons/xelu_action_prompts/nsw/button_dpad_up.png" id="15_x6ci3"]
+[ext_resource type="Texture2D" uid="uid://bwk08bvx0moog" path="res://addons/xelu_action_prompts/nsw/button_dpad_down.png" id="16_grour"]
+[ext_resource type="Texture2D" uid="uid://br2m3myfgdclm" path="res://addons/xelu_action_prompts/nsw/button_dpad_left.png" id="17_2l75r"]
+[ext_resource type="Texture2D" uid="uid://bqqqnpjv12cab" path="res://addons/xelu_action_prompts/nsw/button_dpad_right.png" id="18_k6fqe"]
+
+[resource]
+resource_name = "Xelu's Switch Input Prompts"
+script = ExtResource("1_t23tu")
+buttons = Dictionary[int, Texture2D]({
+0: ExtResource("5_opjt1"),
+1: ExtResource("6_frowx"),
+2: ExtResource("7_5gtmf"),
+3: ExtResource("8_k1tj0"),
+4: ExtResource("9_45fht"),
+6: ExtResource("10_g6ncd"),
+7: ExtResource("11_t74fk"),
+8: ExtResource("12_o6mrv"),
+9: ExtResource("13_dnt2a"),
+10: ExtResource("14_vrwhs"),
+11: ExtResource("15_x6ci3"),
+12: ExtResource("16_grour"),
+13: ExtResource("17_2l75r"),
+14: ExtResource("18_k6fqe")
+})
+axis = Dictionary[int, Texture2D]({
+0: ExtResource("1_8dmb7"),
+1: ExtResource("1_8dmb7"),
+2: ExtResource("2_8rd4w"),
+3: ExtResource("2_8rd4w"),
+4: ExtResource("3_2472x"),
+5: ExtResource("4_vbsiu")
+})
+metadata/_custom_type_script = "uid://bbsns7yudeodh"

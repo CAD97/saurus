@@ -1,0 +1,145 @@
+[gd_resource type="Resource" script_class="KeyInputTextures" load_steps=69 format=3 uid="uid://dix1ktdccjcyh"]
+
+[ext_resource type="Texture2D" uid="uid://cfi68ki6aup4a" path="res://addons/xelu_action_prompts/key/i.png" id="1_joq7b"]
+[ext_resource type="Script" uid="uid://c6hhn10kc7tfd" path="res://addons/xelu_action_prompts/key_input_textures.gd" id="1_uupld"]
+[ext_resource type="Texture2D" uid="uid://nw680agvlh41" path="res://addons/xelu_action_prompts/key/insert.png" id="2_d3snb"]
+[ext_resource type="Texture2D" uid="uid://bk4fpudowa081" path="res://addons/xelu_action_prompts/key/j.png" id="3_yw3wh"]
+[ext_resource type="Texture2D" uid="uid://ca5tktdxexarl" path="res://addons/xelu_action_prompts/key/k.png" id="4_qoesp"]
+[ext_resource type="Texture2D" uid="uid://bepb53hg2uih8" path="res://addons/xelu_action_prompts/key/l.png" id="5_xf6gr"]
+[ext_resource type="Texture2D" uid="uid://dvx4gpw06t5ra" path="res://addons/xelu_action_prompts/key/left.png" id="6_rftlh"]
+[ext_resource type="Texture2D" uid="uid://drb070r6jshdk" path="res://addons/xelu_action_prompts/key/less.png" id="7_dc6vj"]
+[ext_resource type="Texture2D" uid="uid://ce1xpcknehels" path="res://addons/xelu_action_prompts/key/m.png" id="8_dgjck"]
+[ext_resource type="Texture2D" uid="uid://d0q245by6w80w" path="res://addons/xelu_action_prompts/key/minus.png" id="9_un0wt"]
+[ext_resource type="Texture2D" uid="uid://b3x8d2niuuvnx" path="res://addons/xelu_action_prompts/key/n.png" id="10_wmal4"]
+[ext_resource type="Texture2D" uid="uid://dxtt7xs4juxkc" path="res://addons/xelu_action_prompts/key/o.png" id="11_80a2x"]
+[ext_resource type="Texture2D" uid="uid://udl8j3nn3hws" path="res://addons/xelu_action_prompts/key/p.png" id="12_2bml3"]
+[ext_resource type="Texture2D" uid="uid://dpkoqtibg5rm2" path="res://addons/xelu_action_prompts/key/pagedown.png" id="13_4k8fi"]
+[ext_resource type="Texture2D" uid="uid://drxr3q7tonwb3" path="res://addons/xelu_action_prompts/key/pageup.png" id="14_dwrpu"]
+[ext_resource type="Texture2D" uid="uid://dw16hvstg1i2x" path="res://addons/xelu_action_prompts/key/plus.png" id="15_d5ug8"]
+[ext_resource type="Texture2D" uid="uid://cwon7fk7w8nbe" path="res://addons/xelu_action_prompts/key/q.png" id="16_h44n6"]
+[ext_resource type="Texture2D" uid="uid://beljosx3q3fy0" path="res://addons/xelu_action_prompts/key/z.png" id="17_em4ty"]
+[ext_resource type="Texture2D" uid="uid://qsq4dtyvcu87" path="res://addons/xelu_action_prompts/key/y.png" id="18_h1uoj"]
+[ext_resource type="Texture2D" uid="uid://dwvekd0cj4ddi" path="res://addons/xelu_action_prompts/key/x.png" id="19_vnmxs"]
+[ext_resource type="Texture2D" uid="uid://dns8p70homewb" path="res://addons/xelu_action_prompts/key/w.png" id="20_bj38h"]
+[ext_resource type="Texture2D" uid="uid://dm2trcgysqycu" path="res://addons/xelu_action_prompts/key/v.png" id="21_y76kl"]
+[ext_resource type="Texture2D" uid="uid://b2kqma3qr4oe2" path="res://addons/xelu_action_prompts/key/up.png" id="22_8yv2n"]
+[ext_resource type="Texture2D" uid="uid://cln4lbvxo1q0x" path="res://addons/xelu_action_prompts/key/u.png" id="23_kw703"]
+[ext_resource type="Texture2D" uid="uid://w8rac064nbeo" path="res://addons/xelu_action_prompts/key/tab.png" id="24_wkvla"]
+[ext_resource type="Texture2D" uid="uid://hjb7wubijiv7" path="res://addons/xelu_action_prompts/key/t.png" id="25_xvd7h"]
+[ext_resource type="Texture2D" uid="uid://bvo56d88nwd8i" path="res://addons/xelu_action_prompts/key/space.png" id="26_6me2t"]
+[ext_resource type="Texture2D" uid="uid://cy6xi4q3m5jek" path="res://addons/xelu_action_prompts/key/shift.png" id="27_727qk"]
+[ext_resource type="Texture2D" uid="uid://p32v01vr8773" path="res://addons/xelu_action_prompts/key/semicolon.png" id="28_yiggl"]
+[ext_resource type="Texture2D" uid="uid://db12glths2yb5" path="res://addons/xelu_action_prompts/key/s.png" id="29_sfycc"]
+[ext_resource type="Texture2D" uid="uid://c7ro3igbrjtna" path="res://addons/xelu_action_prompts/key/right.png" id="30_f2li1"]
+[ext_resource type="Texture2D" uid="uid://cfroqiyl3lchl" path="res://addons/xelu_action_prompts/key/r.png" id="31_d743s"]
+[ext_resource type="Texture2D" uid="uid://5t41ksvbx2p7" path="res://addons/xelu_action_prompts/key/quotedbl.png" id="32_ri2e6"]
+[ext_resource type="Texture2D" uid="uid://slodw3r2fx26" path="res://addons/xelu_action_prompts/key/question.png" id="33_idou2"]
+[ext_resource type="Texture2D" uid="uid://bdb3xbc1ru63" path="res://addons/xelu_action_prompts/key/backspace.png" id="34_n48an"]
+[ext_resource type="Texture2D" uid="uid://dvh8ver1melku" path="res://addons/xelu_action_prompts/key/backslash.png" id="35_amh6g"]
+[ext_resource type="Texture2D" uid="uid://b7275mv7aavlk" path="res://addons/xelu_action_prompts/key/b.png" id="36_48sug"]
+[ext_resource type="Texture2D" uid="uid://cx2o6ojkeifsk" path="res://addons/xelu_action_prompts/key/asterisk.png" id="37_p5p2x"]
+[ext_resource type="Texture2D" uid="uid://bqg5s0edj7fn1" path="res://addons/xelu_action_prompts/key/asciitilde.png" id="38_osmch"]
+[ext_resource type="Texture2D" uid="uid://ca5sgr6yrrv5n" path="res://addons/xelu_action_prompts/key/alt.png" id="39_tox4r"]
+[ext_resource type="Texture2D" uid="uid://3p5nfs7ua73p" path="res://addons/xelu_action_prompts/key/a.png" id="40_3dnsf"]
+[ext_resource type="Texture2D" uid="uid://deh4kxfdbrooo" path="res://addons/xelu_action_prompts/key/9.png" id="41_jtq4x"]
+[ext_resource type="Texture2D" uid="uid://dc3if4g0anvga" path="res://addons/xelu_action_prompts/key/8.png" id="42_m12fo"]
+[ext_resource type="Texture2D" uid="uid://cwhxyo5d34ol5" path="res://addons/xelu_action_prompts/key/7.png" id="43_76oq7"]
+[ext_resource type="Texture2D" uid="uid://dasgs6cc1wmem" path="res://addons/xelu_action_prompts/key/6.png" id="44_hs0t8"]
+[ext_resource type="Texture2D" uid="uid://d6oec4ci043c" path="res://addons/xelu_action_prompts/key/5.png" id="45_6qhk5"]
+[ext_resource type="Texture2D" uid="uid://fsrg1kkkdugi" path="res://addons/xelu_action_prompts/key/4.png" id="46_o5u6q"]
+[ext_resource type="Texture2D" uid="uid://1c52cl6w0532" path="res://addons/xelu_action_prompts/key/3.png" id="47_bnvkw"]
+[ext_resource type="Texture2D" uid="uid://dlo0wr7ikdeg" path="res://addons/xelu_action_prompts/key/2.png" id="48_ab8ib"]
+[ext_resource type="Texture2D" uid="uid://w54cs1mn7vbn" path="res://addons/xelu_action_prompts/key/1.png" id="49_um6h1"]
+[ext_resource type="Texture2D" uid="uid://d0m5gdkbdpuw0" path="res://addons/xelu_action_prompts/key/0.png" id="50_tb3o5"]
+[ext_resource type="Texture2D" uid="uid://bgnp1tcl7xaav" path="res://addons/xelu_action_prompts/key/home.png" id="51_mrrxm"]
+[ext_resource type="Texture2D" uid="uid://cjb7dp1pxtu26" path="res://addons/xelu_action_prompts/key/h.png" id="52_f18s5"]
+[ext_resource type="Texture2D" uid="uid://5kcf4wsomt7y" path="res://addons/xelu_action_prompts/key/greater.png" id="53_bef0x"]
+[ext_resource type="Texture2D" uid="uid://cswhgky0y1ty" path="res://addons/xelu_action_prompts/key/g.png" id="54_54ysh"]
+[ext_resource type="Texture2D" uid="uid://tw1j844f43el" path="res://addons/xelu_action_prompts/key/f.png" id="55_nawxa"]
+[ext_resource type="Texture2D" uid="uid://bjrqujcse1xcb" path="res://addons/xelu_action_prompts/key/escape.png" id="56_iehyo"]
+[ext_resource type="Texture2D" uid="uid://bml515ipfefrx" path="res://addons/xelu_action_prompts/key/enter.png" id="57_a4mg6"]
+[ext_resource type="Texture2D" uid="uid://duafujwcx6l0s" path="res://addons/xelu_action_prompts/key/end.png" id="58_eu3hm"]
+[ext_resource type="Texture2D" uid="uid://cv5kb76a4p5p6" path="res://addons/xelu_action_prompts/key/e.png" id="59_hpei5"]
+[ext_resource type="Texture2D" uid="uid://b72rbvb67m82g" path="res://addons/xelu_action_prompts/key/down.png" id="60_1r40o"]
+[ext_resource type="Texture2D" uid="uid://bkeav4rirmw8k" path="res://addons/xelu_action_prompts/key/delete.png" id="61_xb0v0"]
+[ext_resource type="Texture2D" uid="uid://ykquhmjemx3s" path="res://addons/xelu_action_prompts/key/d.png" id="62_nvj1v"]
+[ext_resource type="Texture2D" uid="uid://bvqjtmouyh63j" path="res://addons/xelu_action_prompts/key/ctrl.png" id="63_sgga3"]
+[ext_resource type="Texture2D" uid="uid://bj6ak6lhbtplj" path="res://addons/xelu_action_prompts/key/capslock.png" id="64_6nwu7"]
+[ext_resource type="Texture2D" uid="uid://dk52051vi18fa" path="res://addons/xelu_action_prompts/key/c.png" id="65_3kcvi"]
+[ext_resource type="Texture2D" uid="uid://bkppg624dl1pj" path="res://addons/xelu_action_prompts/key/bracketright.png" id="66_pp3i3"]
+[ext_resource type="Texture2D" uid="uid://dr80p4pq5k48y" path="res://addons/xelu_action_prompts/key/bracketleft.png" id="67_wlxgk"]
+
+[resource]
+resource_name = "Xelu's Keyboard Input Prompts"
+script = ExtResource("1_uupld")
+texture_dir = "res://addons/xelu_action_prompts/key"
+keys = Dictionary[int, Texture2D]({
+32: ExtResource("26_6me2t"),
+34: ExtResource("32_ri2e6"),
+42: ExtResource("37_p5p2x"),
+43: ExtResource("15_d5ug8"),
+45: ExtResource("9_un0wt"),
+48: ExtResource("50_tb3o5"),
+49: ExtResource("49_um6h1"),
+50: ExtResource("48_ab8ib"),
+51: ExtResource("47_bnvkw"),
+52: ExtResource("46_o5u6q"),
+53: ExtResource("45_6qhk5"),
+54: ExtResource("44_hs0t8"),
+55: ExtResource("43_76oq7"),
+56: ExtResource("42_m12fo"),
+57: ExtResource("41_jtq4x"),
+59: ExtResource("28_yiggl"),
+60: ExtResource("7_dc6vj"),
+62: ExtResource("53_bef0x"),
+63: ExtResource("33_idou2"),
+65: ExtResource("40_3dnsf"),
+66: ExtResource("36_48sug"),
+67: ExtResource("65_3kcvi"),
+68: ExtResource("62_nvj1v"),
+69: ExtResource("59_hpei5"),
+70: ExtResource("55_nawxa"),
+71: ExtResource("54_54ysh"),
+72: ExtResource("52_f18s5"),
+73: ExtResource("1_joq7b"),
+74: ExtResource("3_yw3wh"),
+75: ExtResource("4_qoesp"),
+76: ExtResource("5_xf6gr"),
+77: ExtResource("8_dgjck"),
+78: ExtResource("10_wmal4"),
+79: ExtResource("11_80a2x"),
+80: ExtResource("12_2bml3"),
+81: ExtResource("16_h44n6"),
+82: ExtResource("31_d743s"),
+83: ExtResource("29_sfycc"),
+84: ExtResource("25_xvd7h"),
+85: ExtResource("23_kw703"),
+86: ExtResource("21_y76kl"),
+87: ExtResource("20_bj38h"),
+88: ExtResource("19_vnmxs"),
+89: ExtResource("18_h1uoj"),
+90: ExtResource("17_em4ty"),
+91: ExtResource("67_wlxgk"),
+92: ExtResource("35_amh6g"),
+93: ExtResource("66_pp3i3"),
+126: ExtResource("38_osmch"),
+4194305: ExtResource("56_iehyo"),
+4194306: ExtResource("24_wkvla"),
+4194308: ExtResource("34_n48an"),
+4194309: ExtResource("57_a4mg6"),
+4194311: ExtResource("2_d3snb"),
+4194312: ExtResource("61_xb0v0"),
+4194317: ExtResource("51_mrrxm"),
+4194318: ExtResource("58_eu3hm"),
+4194319: ExtResource("6_rftlh"),
+4194320: ExtResource("22_8yv2n"),
+4194321: ExtResource("30_f2li1"),
+4194322: ExtResource("60_1r40o"),
+4194323: ExtResource("14_dwrpu"),
+4194324: ExtResource("13_4k8fi"),
+4194325: ExtResource("27_727qk"),
+4194326: ExtResource("63_sgga3"),
+4194328: ExtResource("39_tox4r"),
+4194329: ExtResource("64_6nwu7")
+})
+metadata/_custom_type_script = "uid://c6hhn10kc7tfd"
