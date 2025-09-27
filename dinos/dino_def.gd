@@ -11,6 +11,6 @@ extends Resource
 @export var defense: int = 100
 @export var accuracy: int = 100
 @export var evasion: int = 100
-@export var crit: int = 100
+@export var critical: int = 100
 @export var status: int = 100
 @export var speed: int = 100

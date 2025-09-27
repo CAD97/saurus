@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="JoyInputTextures" load_steps=21 format=3 uid="uid://bp1osd4fx24mp"]
+
+[ext_resource type="Texture2D" uid="uid://djkq65atud56n" path="res://addons/xelu_action_prompts/xbox/axis_left.png" id="1_3rfra"]
+[ext_resource type="Script" uid="uid://bbsns7yudeodh" path="res://addons/xelu_action_prompts/joy_input_textures.gd" id="1_wrik2"]
+[ext_resource type="Texture2D" uid="uid://bchy7aywp3v4o" path="res://addons/xelu_action_prompts/xbox/axis_right.png" id="2_2mxde"]
+[ext_resource type="Texture2D" uid="uid://d16eskrcw6wvo" path="res://addons/xelu_action_prompts/xbox/axis_trigger_left.png" id="3_hox0w"]
+[ext_resource type="Texture2D" uid="uid://bfwmx4kg8dw6j" path="res://addons/xelu_action_prompts/xbox/axis_trigger_right.png" id="4_sj1fm"]
+[ext_resource type="Texture2D" uid="uid://co53c3fy4qklb" path="res://addons/xelu_action_prompts/xbox/button_a.png" id="5_bxorw"]
+[ext_resource type="Texture2D" uid="uid://cho0uhnhm1cc8" path="res://addons/xelu_action_prompts/xbox/button_b.png" id="6_r04fm"]
+[ext_resource type="Texture2D" uid="uid://dsl4bhpys1pt6" path="res://addons/xelu_action_prompts/xbox/button_x.png" id="7_kls16"]
+[ext_resource type="Texture2D" uid="uid://d1ub5ss1wo1xt" path="res://addons/xelu_action_prompts/xbox/button_y.png" id="8_fbg6r"]
+[ext_resource type="Texture2D" uid="uid://rw6i6fap0w1s" path="res://addons/xelu_action_prompts/xbox/button_back.png" id="9_qf3y5"]
+[ext_resource type="Texture2D" uid="uid://cihtfv86felfw" path="res://addons/xelu_action_prompts/xbox/button_start.png" id="10_o1sqx"]
+[ext_resource type="Texture2D" uid="uid://dv3jmtftpapvl" path="res://addons/xelu_action_prompts/xbox/button_left_stick.png" id="11_1ar51"]
+[ext_resource type="Texture2D" uid="uid://6wc5qreb80et" path="res://addons/xelu_action_prompts/xbox/button_right_stick.png" id="12_o8lcn"]
+[ext_resource type="Texture2D" uid="uid://e2oj65x64n6y" path="res://addons/xelu_action_prompts/xbox/button_left_shoulder.png" id="13_rgwng"]
+[ext_resource type="Texture2D" uid="uid://o0qfym5b2t5" path="res://addons/xelu_action_prompts/xbox/button_right_shoulder.png" id="14_1wxo4"]
+[ext_resource type="Texture2D" uid="uid://dm3loia8fiv3j" path="res://addons/xelu_action_prompts/xbox/button_dpad_up.png" id="15_l2lkn"]
+[ext_resource type="Texture2D" uid="uid://bhtuq76t0rqdq" path="res://addons/xelu_action_prompts/xbox/button_dpad_down.png" id="16_nh5wb"]
+[ext_resource type="Texture2D" uid="uid://b5b3l2mvjwo4m" path="res://addons/xelu_action_prompts/xbox/button_dpad_left.png" id="17_ce4dt"]
+[ext_resource type="Texture2D" uid="uid://cxa8r5nmagky8" path="res://addons/xelu_action_prompts/xbox/button_dpad_right.png" id="18_ntxpk"]
+[ext_resource type="Texture2D" uid="uid://cgnatndymgri3" path="res://addons/xelu_action_prompts/xbox/button_misc1.png" id="19_uoqi4"]
+
+[resource]
+resource_name = "Xelu's Xbox Series Input Prompts"
+script = ExtResource("1_wrik2")
+buttons = Dictionary[int, Texture2D]({
+0: ExtResource("5_bxorw"),
+1: ExtResource("6_r04fm"),
+2: ExtResource("7_kls16"),
+3: ExtResource("8_fbg6r"),
+4: ExtResource("9_qf3y5"),
+6: ExtResource("10_o1sqx"),
+7: ExtResource("11_1ar51"),
+8: ExtResource("12_o8lcn"),
+9: ExtResource("13_rgwng"),
+10: ExtResource("14_1wxo4"),
+11: ExtResource("15_l2lkn"),
+12: ExtResource("16_nh5wb"),
+13: ExtResource("17_ce4dt"),
+14: ExtResource("18_ntxpk"),
+15: ExtResource("19_uoqi4")
+})
+axis = Dictionary[int, Texture2D]({
+0: ExtResource("1_3rfra"),
+1: ExtResource("1_3rfra"),
+2: ExtResource("2_2mxde"),
+3: ExtResource("2_2mxde"),
+4: ExtResource("3_hox0w"),
+5: ExtResource("4_sj1fm")
+})
+metadata/_custom_type_script = "uid://bbsns7yudeodh"
