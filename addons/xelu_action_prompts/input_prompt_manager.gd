@@ -143,7 +143,7 @@ func _load_action_prompts(action: StringName) -> Dictionary[int, Texture2D]:
 				if joypad_event.button_index in _xbox_input_textures.buttons:
 					prompts[JoyKind.XBOX] = _xbox_input_textures.buttons[joypad_event.button_index]
 				else:
-					push_warning("Missing texture for XBOX %s" % joypad_event.as_text())
+					push_warning("Missing texture for Xbox %s" % joypad_event.as_text())
 			if JoyKind.NSW not in prompts:
 				if joypad_event.button_index in _nsw_input_textures.buttons:
 					prompts[JoyKind.NSW] = _nsw_input_textures.buttons[joypad_event.button_index]
@@ -161,7 +161,7 @@ func _load_action_prompts(action: StringName) -> Dictionary[int, Texture2D]:
 					if joypad_event.axis in _xbox_input_textures.axis:
 						prompts[JoyKind.XBOX] = _xbox_input_textures.axis[joypad_event.axis]
 					else:
-						push_warning("Missing texture for XBOX %s" % joypad_event.as_text())
+						push_warning("Missing texture for Xbox %s" % joypad_event.as_text())
 				if JoyKind.NSW not in prompts:
 					if joypad_event.axis in _nsw_input_textures.axis:
 						prompts[JoyKind.NSW] = _nsw_input_textures.axis[joypad_event.axis]
