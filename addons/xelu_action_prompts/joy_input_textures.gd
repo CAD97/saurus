@@ -1,3 +1,4 @@
+@tool
 @icon("uid://cgjubwsmvks88") # editor/Joypad.svg
 class_name JoyInputTextures
 extends Resource
