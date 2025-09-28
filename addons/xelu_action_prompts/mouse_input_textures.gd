@@ -1,3 +1,4 @@
+@tool
 @icon("uid://31xmn4yivubs")
 class_name MouseInputTextures
 extends Resource

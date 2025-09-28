@@ -124,60 +124,36 @@ func _load_action_prompts(action: StringName) -> Dictionary[int, Texture2D]:
 	for event in _action_get_events(action):
 		if event is InputEventKey:
 			var key_event := event as InputEventKey
-			if KIND_KEY not in prompts:
-				var key := key_event.keycode if key_event.keycode else key_event.physical_keycode
-				if key in _key_input_textures.keys:
-					prompts[KIND_KEY] = _key_input_textures.keys[key]
-				else:
-					push_error("Missing texture for keyboard %s" % key_event.as_text())
+			var key := key_event.keycode if key_event.keycode else key_event.physical_keycode
+			_load_action_prompt_inner("keyboard", KIND_KEY, prompts, event, key, _key_input_textures.keys)
 		if event is InputEventMouseButton:
 			var mouse_event := event as InputEventMouseButton
-			if KIND_MOUSE not in prompts:
-				if mouse_event.button_index in _mouse_input_textures.buttons:
-					prompts[KIND_MOUSE] = _mouse_input_textures.buttons[mouse_event.button_index]
-				else:
-					push_error("Missing texture for mouse button %s" % mouse_event.as_text())
+			_load_action_prompt_inner("mouse button", KIND_MOUSE, prompts, event, event.button_index, _mouse_input_textures.buttons)
 		if event is InputEventJoypadButton:
 			var joypad_event := event as InputEventJoypadButton
-			if JoyKind.XBOX not in prompts:
-				if joypad_event.button_index in _xbox_input_textures.buttons:
-					prompts[JoyKind.XBOX] = _xbox_input_textures.buttons[joypad_event.button_index]
-				else:
-					push_warning("Missing texture for Xbox %s" % joypad_event.as_text())
-			if JoyKind.NSW not in prompts:
-				if joypad_event.button_index in _nsw_input_textures.buttons:
-					prompts[JoyKind.NSW] = _nsw_input_textures.buttons[joypad_event.button_index]
-				else:
-					push_warning("Missing texture for Switch %s" % joypad_event.as_text())
-			if JoyKind.PS5 not in prompts:
-				if joypad_event.button_index in _ps5_input_textures.buttons:
-					prompts[JoyKind.PS5] = _ps5_input_textures.buttons[joypad_event.button_index]
-				else:
-					push_warning("Missing texture for PS5 %s" % joypad_event.as_text())
+			_load_action_prompt_inner("Xbox", JoyKind.XBOX, prompts, event, event.button_index, _xbox_input_textures.buttons)
+			_load_action_prompt_inner("Switch", JoyKind.NSW, prompts, event, event.button_index, _nsw_input_textures.buttons)
+			_load_action_prompt_inner("PS5", JoyKind.PS5, prompts, event, event.button_index, _ps5_input_textures.buttons)
 		if event is InputEventJoypadMotion:
 			var joypad_event := event as InputEventJoypadMotion
 			if joypad_event.axis_value > _joy_axis_detection_deadzone:
-				if JoyKind.XBOX not in prompts:
-					if joypad_event.axis in _xbox_input_textures.axis:
-						prompts[JoyKind.XBOX] = _xbox_input_textures.axis[joypad_event.axis]
-					else:
-						push_warning("Missing texture for Xbox %s" % joypad_event.as_text())
-				if JoyKind.NSW not in prompts:
-					if joypad_event.axis in _nsw_input_textures.axis:
-						prompts[JoyKind.NSW] = _nsw_input_textures.axis[joypad_event.axis]
-					else:
-						push_warning("Missing texture for Switch %s" % joypad_event.as_text())
-				if JoyKind.PS5 not in prompts:
-					if joypad_event.axis in _ps5_input_textures.axis:
-						prompts[JoyKind.PS5] = _ps5_input_textures.axis[joypad_event.axis]
-					else:
-						push_warning("Missing texture for PS5 %s" % joypad_event.as_text())
+				_load_action_prompt_inner("Xbox", JoyKind.XBOX, prompts, event, event.axis, _xbox_input_textures.axis)
+				_load_action_prompt_inner("Switch", JoyKind.NSW, prompts, event, event.axis, _nsw_input_textures.axis)
+				_load_action_prompt_inner("PS5", JoyKind.PS5, prompts, event, event.axis, _ps5_input_textures.axis)
 	return prompts
+
+
+func _load_action_prompt_inner(what: String, kind: int, prompts: Dictionary[int, Texture2D],
+		event: InputEvent, index: int, textures: Dictionary) -> void:
+	if kind not in prompts:
+		if index in textures:
+			prompts[kind] = textures[index]
+		else:
+			push_error("Missing texture for %s %s" % [what, event.as_text()])
 
 
 func _reload_input_textures() -> void:
 	if Engine.is_editor_hint():
-		_action_prompt_cache.clear()
 		if _xbox_input_textures: _xbox_input_textures.textures_changed.disconnect(_emit_textures_changed)
 		if _nsw_input_textures: _nsw_input_textures.textures_changed.disconnect(_emit_textures_changed)
 		if _ps5_input_textures: _ps5_input_textures.textures_changed.disconnect(_emit_textures_changed)
@@ -185,15 +161,15 @@ func _reload_input_textures() -> void:
 		if _mouse_input_textures: _mouse_input_textures.textures_changed.disconnect(_emit_textures_changed)
 
 	_xbox_input_textures = load(_get_setting(XBOX_INPUT_TEXTURES_SETTING, "uid://bp1osd4fx24mp")) as JoyInputTextures
-	assert(_xbox_input_textures, "%s must be an instance of JoyInputTextures" % XBOX_INPUT_TEXTURES_SETTING)
+	assert(_xbox_input_textures is JoyInputTextures, "%s must be an instance of JoyInputTextures" % XBOX_INPUT_TEXTURES_SETTING)
 	_nsw_input_textures = load(_get_setting(NSW_INPUT_TEXTURES_SETTING, "uid://dhi5p1hf0iph4")) as JoyInputTextures
-	assert(_nsw_input_textures, "%s must be an instance of JoyInputTextures" % NSW_INPUT_TEXTURES_SETTING)
+	assert(_nsw_input_textures is JoyInputTextures, "%s must be an instance of JoyInputTextures" % NSW_INPUT_TEXTURES_SETTING)
 	_ps5_input_textures = load(_get_setting(PS5_INPUT_TEXTURES_SETTING, "uid://b3grbkyv41fgl")) as JoyInputTextures
-	assert(_ps5_input_textures, "%s must be an instance of JoyInputTextures" % PS5_INPUT_TEXTURES_SETTING)
+	assert(_ps5_input_textures is JoyInputTextures, "%s must be an instance of JoyInputTextures" % PS5_INPUT_TEXTURES_SETTING)
 	_key_input_textures = load(_get_setting(KEY_INPUT_TEXTURES_SETTING, "uid://dix1ktdccjcyh")) as KeyInputTextures
-	assert(_key_input_textures, "%s must be an instance of KeyInputTextures" % KEY_INPUT_TEXTURES_SETTING)
+	assert(_key_input_textures is KeyInputTextures, "%s must be an instance of KeyInputTextures" % KEY_INPUT_TEXTURES_SETTING)
 	_mouse_input_textures = load(_get_setting(MOUSE_INPUT_TEXTURES_SETTING, "uid://dyucu1rsu2w8r")) as MouseInputTextures
-	assert(_mouse_input_textures, "%s must be an instance of MouseInputTextures" % MOUSE_INPUT_TEXTURES_SETTING)
+	assert(_mouse_input_textures is MouseInputTextures, "%s must be an instance of MouseInputTextures" % MOUSE_INPUT_TEXTURES_SETTING)
 	_joy_axis_detection_deadzone = _get_setting(JOY_AXIS_DETECTION_DEADZONE_SETTING, 0.2)
 
 	if Engine.is_editor_hint():
@@ -211,6 +187,7 @@ func _get_setting(config: StringName, default):
 
 
 func _emit_textures_changed() -> void:
+	_action_prompt_cache.clear()
 	textures_changed.emit()
 
 
