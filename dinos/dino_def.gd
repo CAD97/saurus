@@ -3,7 +3,7 @@ extends Resource
 
 
 @export_custom(PROPERTY_HINT_LOCALIZABLE_STRING, "") var name: String
-@export var sprite: Texture2D
+@export var sprite: SpriteFrames
 
 @export_group("Battle Stats")
 @export var health: int = 100

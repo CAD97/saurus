@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8imikwh2q8us"
-path="res://.godot/imported/lystrosaurus.png-90c08e63d737de36151e9c61620c8e81.ctex"
+uid="uid://cashehc30dih3"
+path="res://.godot/imported/bone_diagram.jpg-1c65231f570267fd67c2dc9baa85037c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dinos/lystrosaurus/lystrosaurus.png"
-dest_files=["res://.godot/imported/lystrosaurus.png-90c08e63d737de36151e9c61620c8e81.ctex"]
+source_file="res://dinos/lystrosaurus/bone_diagram.jpg"
+dest_files=["res://.godot/imported/bone_diagram.jpg-1c65231f570267fd67c2dc9baa85037c.ctex"]
 
 [params]
 
