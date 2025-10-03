@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="DinoDef" load_steps=2 format=3 uid="uid://fg0xbpftcpeo"]
+[gd_resource type="Resource" script_class="DinoDef" load_steps=3 format=3 uid="uid://fg0xbpftcpeo"]
 
 [ext_resource type="Script" uid="uid://dbba2y0rtpwsa" path="res://dinos/dino_def.gd" id="1_qxstx"]
+[ext_resource type="SpriteFrames" uid="uid://iojpsnbcym15" path="res://dinos/lystrosaurus/sprite.res" id="2_qxstx"]
 
 [resource]
 script = ExtResource("1_qxstx")
 name = "Lystrosaurus"
+sprite = ExtResource("2_qxstx")
 metadata/_custom_type_script = "uid://dbba2y0rtpwsa"
