@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://rrostxmlxcfs"]
+[gd_scene load_steps=7 format=3 uid="uid://rrostxmlxcfs"]
 
 [ext_resource type="Texture2D" uid="uid://cw4bwhx1l1nmh" path="res://levels/battletest/action_widget_bg.png" id="1_4lf0k"]
 [ext_resource type="Texture2D" uid="uid://6oo7hlqd1xqg" path="res://levels/battletest/action_bar_under.png" id="2_8bwwk"]
@@ -19,28 +19,13 @@ extends Control
 
 
 @export var flip := false:
-	get: return _texture_rect.flip_h
 	set(value):
-		_texture_rect.flip_h = value
-		var bar_anchor_left := _progress_bar.anchor_left
-		var bar_anchor_right := _progress_bar.anchor_right
-		if _texture_rect.flip_h:
-			_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
-			_progress_bar.fill_mode = ProgressBar.FILL_END_TO_BEGIN
-			_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-			_progress_bar.anchor_left = 1.0 - bar_anchor_right
-			_progress_bar.anchor_right = 1.0 - bar_anchor_left
-			_dino_layout_widget.scale.x = -1.0
-		else:
-			_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
-			_progress_bar.fill_mode = ProgressBar.FILL_BEGIN_TO_END
-			_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
-			_progress_bar.anchor_right = 1.0 - bar_anchor_left
-			_progress_bar.anchor_left = 1.0 - bar_anchor_right
-			_dino_layout_widget.scale.x = 1.0
+		flip = value
+		if is_node_ready():
+			_sync_flip()
 
 
-@export var ap: int = 10:
+var ap: int = 10:
 	get: return int(_progress_bar.value)
 	set(value):
 		if is_node_ready():
@@ -48,7 +33,7 @@ extends Control
 			_update_label()
 
 
-@export var max_ap: int = 20:
+var max_ap: int = 20:
 	get: return int(_progress_bar.max_value)
 	set(value):
 		if is_node_ready():
@@ -56,15 +41,37 @@ extends Control
 			_update_label()
 
 
+func _ready() -> void:
+	_sync_flip()
+
+
+func _sync_flip() -> void:
+	if _texture_rect.flip_h == flip:
+		return
+
+	_texture_rect.flip_h = flip
+	var bar_anchor_left := _progress_bar.anchor_left
+	var bar_anchor_right := _progress_bar.anchor_right
+	if flip:
+		_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+		_progress_bar.fill_mode = ProgressBar.FILL_END_TO_BEGIN
+		_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		_progress_bar.anchor_left = 1.0 - bar_anchor_right
+		_progress_bar.anchor_right = 1.0 - bar_anchor_left
+		_dino_layout_widget.scale.x = -1.0
+	else:
+		_texture_rect.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
+		_progress_bar.fill_mode = ProgressBar.FILL_BEGIN_TO_END
+		_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_progress_bar.anchor_right = 1.0 - bar_anchor_left
+		_progress_bar.anchor_left = 1.0 - bar_anchor_right
+		_dino_layout_widget.scale.x = 1.0
+
+
 func _update_label() -> void:
 	var ts := TextServerManager.get_primary_interface()
 	_label.text = \"%d/%d\" % [ap, max_ap].map(str).map(ts.format_number)
 "
-
-[sub_resource type="LabelSettings" id="LabelSettings_ov8iu"]
-font_size = 104
-outline_size = 20
-outline_color = Color(0, 0, 0, 1)
 
 [node name="BattleWidget" type="Control"]
 layout_mode = 3
@@ -75,8 +82,6 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 script = SubResource("GDScript_4lf0k")
-ap = 0
-max_ap = 0
 
 [node name="DinoLayoutWidget" parent="." instance=ExtResource("5_8bwwk")]
 unique_name_in_owner = true
@@ -104,7 +109,7 @@ texture = ExtResource("1_4lf0k")
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.19999999
+anchor_left = 0.2
 anchor_top = 0.6
 anchor_right = 1.311
 anchor_bottom = 0.6
@@ -128,5 +133,4 @@ offset_left = 6.1035156e-05
 offset_top = -150.0
 grow_horizontal = 2
 text = "0/0"
-label_settings = SubResource("LabelSettings_ov8iu")
 vertical_alignment = 2
