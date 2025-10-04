@@ -1,3 +1,89 @@
-[gd_resource type="Theme" format=3 uid="uid://15hxchwfsslb"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://15hxchwfsslb"]
+
+[ext_resource type="FontFile" uid="uid://bs41ycsltl6id" path="res://globals/inter/InterVariable.ttf" id="1_q5jrc"]
+
+[sub_resource type="FontVariation" id="FontVariation_q5jrc"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 22,
+2003265652: 800
+}
+
+[sub_resource type="FontVariation" id="FontVariation_0xi53"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 16,
+2003265652: 800
+}
+
+[sub_resource type="FontVariation" id="FontVariation_a7ky7"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 20,
+2003265652: 600
+}
+
+[sub_resource type="FontVariation" id="FontVariation_njy6m"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 28,
+2003265652: 800
+}
+
+[sub_resource type="FontVariation" id="FontVariation_pdgya"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 22,
+2003265652: 800
+}
+
+[sub_resource type="FontVariation" id="FontVariation_yqyxq"]
+base_font = ExtResource("1_q5jrc")
+variation_opentype = {
+1869640570: 20,
+2003265652: 800
+}
 
 [resource]
+Button/font_sizes/font_size = 64
+CheckBox/font_sizes/font_size = 64
+CheckButton/font_sizes/font_size = 64
+CodeEdit/font_sizes/font_size = 64
+ColorPickerButton/font_sizes/font_size = 64
+FoldableContainer/font_sizes/font_size = 64
+GraphFrameTitleLabel/font_sizes/font_size = 88
+GraphFrameTitleLabel/fonts/font = SubResource("FontVariation_q5jrc")
+GraphNodeTitleLabel/font_sizes/font_size = 64
+GraphNodeTitleLabel/fonts/font = SubResource("FontVariation_0xi53")
+HUDLabel/base_type = &"Label"
+HUDLabel/constants/outline_size = 20
+HUDLabel/font_sizes/font_size = 80
+HUDLabel/fonts/font = SubResource("FontVariation_a7ky7")
+HeaderLarge/font_sizes/font_size = 112
+HeaderLarge/fonts/font = SubResource("FontVariation_njy6m")
+HeaderMedium/font_sizes/font_size = 88
+HeaderMedium/fonts/font = SubResource("FontVariation_pdgya")
+HeaderSmall/font_sizes/font_size = 80
+HeaderSmall/fonts/font = SubResource("FontVariation_yqyxq")
+ItemList/font_sizes/font_size = 64
+Label/font_sizes/font_size = 64
+LineEdit/font_sizes/font_size = 64
+LinkButton/font_sizes/font_size = 64
+MenuBar/font_sizes/font_size = 64
+MenuButton/font_sizes/font_size = 64
+OptionButton/font_sizes/font_size = 64
+PopupMenu/font_sizes/font_separator_size = 64
+PopupMenu/font_sizes/font_size = 64
+ProgressBar/font_sizes/font_size = 64
+RichTextLabel/font_sizes/bold_font_size = 64
+RichTextLabel/font_sizes/bold_italics_font_size = 64
+RichTextLabel/font_sizes/italics_font_size = 64
+RichTextLabel/font_sizes/mono_font_size = 64
+RichTextLabel/font_sizes/normal_font_size = 64
+TabBar/font_sizes/font_size = 64
+TabContainer/font_sizes/font_size = 64
+TextEdit/font_sizes/font_size = 64
+TooltipLabel/font_sizes/font_size = 64
+Tree/font_sizes/font_size = 64
+Tree/font_sizes/title_button_font_size = 64
+Window/font_sizes/title_font_size = 64

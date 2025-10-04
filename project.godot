@@ -72,9 +72,9 @@ folder_colors={
 
 [gui]
 
-theme/default_theme_scale=6.0
+theme/default_theme_scale=4.0
 theme/custom="uid://15hxchwfsslb"
-theme/custom_font="uid://bs41ycsltl6id"
+theme/custom_font="uid://t2i1je4frjqg"
 
 [input]
 

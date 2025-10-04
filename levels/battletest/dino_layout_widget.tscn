@@ -44,6 +44,7 @@ func _emit_rotate_clicked(dir: ClockDirection) -> void:
 "
 
 [node name="DinoLayoutWidget" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(864, 864)
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0

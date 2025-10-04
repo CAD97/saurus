@@ -1,0 +1,14 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://t2i1je4frjqg"]
+
+[ext_resource type="FontFile" uid="uid://bs41ycsltl6id" path="res://globals/inter/InterVariable.ttf" id="1_317ir"]
+
+[resource]
+base_font = ExtResource("1_317ir")
+variation_opentype = {
+1869640570: 16,
+2003265652: 600
+}
+opentype_features = {
+1667329140: 1,
+1953396077: 1
+}
