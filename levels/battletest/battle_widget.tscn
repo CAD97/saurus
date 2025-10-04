@@ -43,6 +43,7 @@ var max_ap: int = 20:
 
 func _ready() -> void:
 	_sync_flip()
+	_update_label()
 
 
 func _sync_flip() -> void:
@@ -69,8 +70,7 @@ func _sync_flip() -> void:
 
 
 func _update_label() -> void:
-	var ts := TextServerManager.get_primary_interface()
-	_label.text = \"%d/%d\" % [ap, max_ap].map(str).map(ts.format_number)
+	_label.text = \"%02d/%02d\" % [ap, max_ap]
 "
 
 [node name="BattleWidget" type="Control"]
@@ -82,17 +82,6 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 8
 script = SubResource("GDScript_4lf0k")
-
-[node name="DinoLayoutWidget" parent="." instance=ExtResource("5_8bwwk")]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.6
-anchor_bottom = 0.6
-offset_top = -1154.0
-offset_right = 865.0
-offset_bottom = -144.0
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -113,12 +102,12 @@ anchor_left = 0.2
 anchor_top = 0.6
 anchor_right = 1.311
 anchor_bottom = 0.6
+offset_left = -6.1035156e-05
 offset_top = -1.5258789e-05
-offset_right = 0.07989502
-offset_bottom = 89.999985
+offset_right = 0.079956055
+offset_bottom = 95.999985
 grow_horizontal = 2
 grow_vertical = 2
-max_value = 0.0
 texture_under = ExtResource("2_8bwwk")
 texture_over = ExtResource("3_1uwst")
 texture_progress = ExtResource("4_31iqd")
@@ -127,10 +116,25 @@ texture_progress = ExtResource("4_31iqd")
 unique_name_in_owner = true
 auto_translate_mode = 2
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-offset_left = 6.1035156e-05
-offset_top = -150.0
+anchor_bottom = 0.5
+offset_left = 16.000061
+offset_top = -49.0
+offset_bottom = 49.0
 grow_horizontal = 2
-text = "0/0"
-vertical_alignment = 2
+grow_vertical = 2
+theme_type_variation = &"HUDLabel"
+text = "00/100"
+vertical_alignment = 1
+
+[node name="DinoLayoutWidget" parent="." instance=ExtResource("5_8bwwk")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.6
+anchor_bottom = 0.6
+offset_top = -1104.0
+offset_right = 865.0
+offset_bottom = -94.0
